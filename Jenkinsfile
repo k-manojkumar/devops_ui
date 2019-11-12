@@ -3,11 +3,12 @@ pipeline {
     label 'master'
   }
   environment {
+    JAVA_HOME = '/opt/bitnami/java'
     registry = 'manojkumark/devops_ui'
     registryCredential = 'DockerCreds'
     dockerImage = ''
     PROJECT_ID = 'devops-258421'
-    CLUSTER_NAME = 'devops-app'
+    CLUSTER_NAME = 'devops-ui'
     LOCATION = 'europe-north1-a'
     CREDENTIALS_ID = 'jenkins-gke'
     PATH = ''
@@ -63,5 +64,15 @@ pipeline {
           
       }
     }
+       stage('Selenium Smoke Test') {
+       steps{
+            git 'https://github.com/k-manojkumar/devops_smoke_ui.git'
+        
+            sh 'mvn test'
+            
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: './test-reports/', reportFiles: 'TestReport.html', reportName: 'Smoke Test Report', reportTitles: ''])
+            archiveArtifacts 'test-reports/TestReport.html'
+       }
+   }
   }
 }
