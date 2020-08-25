@@ -30,7 +30,7 @@
     "fullcalendar": "^3.10.0",
     "fullcalendar-reactwrapper": "^1.0.7",
     "fullcalendar-scheduler": "^1.9.4",
-    "highcharts": "^7.1.0",
+    "highcharts": "^7.2.2",
     "highcharts-react-official": "^2.1.3",
     "html-webpack-plugin": "2.29.0",
     "interactjs": "^1.3.4",
