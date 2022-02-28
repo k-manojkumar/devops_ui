@@ -10,7 +10,7 @@ import {
 /* process.env.NODE_ENV === "development"
     ? "http://10.179.210.253:7601/DiaryManagerService/v1/"
     : process.env.REACT_APP_GET_RESOURCE_URL; */
-const baseURL = "http://35.189.232.46:7001/DevOpsService/v1/";
+const baseURL = "http://myapp.kmk/DevOpsService/v1/";
 
 export const searchColleague = collID => dispatch => {
   console.log("inside sortCodeActions --> searchColleague " + collID);
